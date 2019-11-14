@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import logo from '../gallery/logo.svg';
 import background from '../gallery/background.jpg';
 import Title from './Title';
+import SearchForm from './SearchForm';
 
 const Header = function(props) {
     return (
@@ -10,7 +11,7 @@ const Header = function(props) {
             <img src={logo} alt="App logo"/>
             <div>
                 <Title>Start searching for photos</Title>
-
+                <SearchForm/>
             </div>
         </HeaderStyles>
     );
