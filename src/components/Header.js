@@ -24,11 +24,17 @@ const HeaderStyles = styled.div `
     position: relative;
     background-image: url('${background}');
     background-size: cover;
+    display: flex;
+    align-items:flex-end;
+    justify-content: center;
     
     img {
         position: absolute;
         top: 3rem;
         left: 9vw;
+    }
+
+    div{
     }
 
 `;
