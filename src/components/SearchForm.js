@@ -37,9 +37,11 @@ class SearchForm extends Component {
     render() {
         return (
             <SearchFormStyles>
-                <Label active={this.state.active}>Keywords</Label>
-                <Input onFocus={this._onFocus} onBlur={this._onBlur} placeholder='Greece coast'/>
-                <Button type='submit' onClick={this._onSubmit}>Search</Button>
+                <div>
+                    <Label active={this.state.active}>Keywords</Label>
+                    <Input onFocus={this._onFocus} onBlur={this._onBlur} placeholder='Greece coast'/>
+                    <Button type='submit' onClick={this._onSubmit}>Search</Button>
+                </div>
             </SearchFormStyles>
         );
     }
@@ -54,6 +56,8 @@ const SearchFormStyles = styled.form `
     height: 250px;
     margin: 4vw auto;
     padding: 30px 40px;
+    display: flex;
+    align-items: center;
     }
 `;
 
