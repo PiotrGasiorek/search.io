@@ -15,6 +15,7 @@ class SearchForm extends Component {
   
         this._onBlur = this._onBlur.bind(this)
         this._onFocus = this._onFocus.bind(this)
+        this._onSubmit = this._onSubmit.bind(this)
       }
 
       _onBlur(){
@@ -29,12 +30,16 @@ class SearchForm extends Component {
         })
       }
 
+      _onSubmit(e){
+        e.preventDefault();
+      }
+
     render() {
         return (
             <SearchFormStyles>
                 <Label active={this.state.active}>Keywords</Label>
                 <Input onFocus={this._onFocus} onBlur={this._onBlur} placeholder='Greece coast'/>
-                <Button>Search</Button>
+                <Button type='submit' onClick={this._onSubmit}>Search</Button>
             </SearchFormStyles>
         );
     }
