@@ -18,14 +18,12 @@ class SearchForm extends Component {
       }
 
       _onBlur(){
-        console.log('not active');
         this.setState({
             active: false
         })
       }
 
       _onFocus(){
-          console.log('active');
         this.setState({
             active: true
         })
