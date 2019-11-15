@@ -27,7 +27,8 @@ const HeaderStyles = styled.div `
     display: flex;
     align-items:flex-end;
     justify-content: center;
-    
+    padding: 9vw;
+
     img {
         position: absolute;
         top: 3rem;
