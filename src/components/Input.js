@@ -7,13 +7,14 @@ const Input = styled.input `
     height: 60px;
     padding: 0 20px;
     font-size: 18px;
+    margin-top: 15px;
     border-bottom: 2px solid white;
     transition: .5s;
 
     ::placeholder{
         color: #969696;
     }
-    
+
     :focus{
         border-bottom: 2px solid #007FCC;
         transition: 1s;
