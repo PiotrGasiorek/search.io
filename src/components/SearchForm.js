@@ -6,44 +6,66 @@ import Input from './Input';
 import Button from './Button';
 import Label from './Label';
 
+const API_key = '563492ad6f9170000100000164c01ee57bbe49caaf75c9d7b1350aa1';
+
+
 class SearchForm extends Component {
     constructor (props) {
         super(props)
         this.state = {
-          active: false
+          active: false,
+          keywords: '',
+          urlForPhotos: `https://api.pexels.com/v1/search?query=dog&per_page=15&page=1`
         }
   
-        this._onBlur = this._onBlur.bind(this)
-        this._onFocus = this._onFocus.bind(this)
-        this._onSubmit = this._onSubmit.bind(this)
+        this.onBlur = this.onBlur.bind(this)
+        this.onFocus = this.onFocus.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
+        this.onChange = this.onChange.bind(this)
       }
 
-      _onBlur(){
-        this.setState({
-            active: false
-        })
-      }
+    onBlur(){
+      this.setState({
+          active: false
+      })
+    }
 
-      _onFocus(){
-        this.setState({
-            active: true
-        })
-      }
+    onFocus(){
+      this.setState({
+          active: true
+      })
+    }
 
-      _onSubmit(e){
-        e.preventDefault();
-      }
+    onChange(e){
+      this.setState({
+          keywords: e.target.value
+      });
+    }
+
+    onSubmit(e){
+      e.preventDefault();
+
+      fetch(this.state.urlForPhotos, {
+        headers: {
+          Authorization: API_key
+        }
+      }).then(resp => resp.json())
+      .then(resp => {
+        console.log(resp);
+      })
+      .catch(error => alert(error));
+    }
 
     render() {
-        return (
-            <SearchFormStyles>
-                <div>
-                    <Label active={this.state.active}>Keywords</Label>
-                    <Input onFocus={this._onFocus} onBlur={this._onBlur} placeholder='Greece coast'/>
-                    <Button type='submit' onClick={this._onSubmit}>Search</Button>
-                </div>
-            </SearchFormStyles>
-        );
+      return (
+          <SearchFormStyles>
+              <div>
+                  <Label active={this.state.active}>Keywords</Label>
+                  <Input onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.onChange} placeholder='Greece coast'/>
+                  <Button type='submit' onClick={this.onSubmit}>Search</Button>
+              </div>
+          </SearchFormStyles>
+      );
     }
     
 }
