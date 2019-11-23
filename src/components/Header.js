@@ -27,7 +27,7 @@ const HeaderStyles = styled.div `
     display: flex;
     align-items:flex-end;
     justify-content: center;
-    padding: 9vw;
+    padding: 9vw 9vw 0 9vw;
 
     img {
         position: absolute;
@@ -35,7 +35,8 @@ const HeaderStyles = styled.div `
         left: 9vw;
     }
 
-    div{
+    @media only screen and (max-width: 500px) {
+        height: 100vh;
     }
 
 `;
