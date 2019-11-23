@@ -6,9 +6,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <Footer>
-        <p>Created by <a href="https://piotrgasiorek.github.io/developer/">Piotr Gąsiorek</a></p>
-      </Footer>
+      <Footer/>
     </div>  
   );
 }
