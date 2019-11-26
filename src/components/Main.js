@@ -6,7 +6,7 @@ const Main = function(props) {
     return (
         <MainStyles>
             <h2>Resoults</h2>
-            <Grid/>
+            <Grid searchedPhotos={props.searchedPhotos}/>
         </MainStyles>
     );
 }

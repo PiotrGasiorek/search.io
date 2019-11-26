@@ -11,7 +11,7 @@ const Header = function(props) {
             <img src={logo} alt="App logo"/>
             <div>
                 <Title>Start searching for photos</Title>
-                <SearchForm/>
+                <SearchForm onSubmit={props.searchResoults}/>
             </div>
         </HeaderStyles>
     );

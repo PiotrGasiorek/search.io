@@ -1,18 +1,48 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Grid = function(props) {
-    return (
-        <GridStyles>
-            <div className="row">
-                <div className="column"></div>
-                <div className="column"></div>
-                <div className="column"></div>
-                <div className="column"></div>
-            </div>
-        </GridStyles>
-    );
-}
+class Grid extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {receivedPhotos: []};
+        this.displayPhotos = this.displayPhotos.bind(this)
+    }
+
+    componentDidUpdate(prevProps){
+        if(this.props.searchedPhotos !== prevProps.searchedPhotos){
+            this.setState({
+              receivedPhotos: Array.from(this.props.searchedPhotos)
+            }, this.displayPhotos())
+        }
+    }
+    
+    displayPhotos(){
+        // setTimeout added to prevent operations on unchanged state
+        setTimeout(() => {
+            let columns = document.getElementsByClassName('column');
+            let receivedPhotos = this.state.receivedPhotos;
+            columns.forEach((column) => {
+                /* for(i = 0; i < 8; i++){
+                    column.innerHtml += `<img src={}/>`
+                } */
+            });
+        }, 0);
+       
+    }
+    render() {
+
+        return (
+            <GridStyles>
+                <div className="row">
+                    <div className="column"></div>
+                    <div className="column"></div>
+                    <div className="column"></div>
+                    <div className="column"></div>
+                </div>
+            </GridStyles>
+        );
+    }
+  }
 
 const GridStyles = styled.div `
     .row {

@@ -51,7 +51,7 @@ class SearchForm extends Component {
         }
       }).then(resp => resp.json())
       .then(resp => {
-        console.log(resp);
+        this.props.onSubmit(resp.photos);
       })
       .catch(error => alert(error));
     }
@@ -60,9 +60,9 @@ class SearchForm extends Component {
       return (
           <SearchFormStyles>
               <div>
-                  <Label active={this.state.active}>Keywords</Label>
-                  <Input onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.onChange} placeholder='Greece coast'/>
-                  <Button type='submit' onClick={this.onSubmit}>Search</Button>
+                <Label active={this.state.active}>Keywords</Label>
+                <Input onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.onChange} placeholder='Greece coast'/>
+                <Button type='submit' onClick={this.onSubmit}>Search</Button>
               </div>
           </SearchFormStyles>
       );
