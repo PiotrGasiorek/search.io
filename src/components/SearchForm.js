@@ -15,7 +15,7 @@ class SearchForm extends Component {
         this.state = {
           active: false,
           keywords: '',
-          urlForPhotos: `https://api.pexels.com/v1/search?query=dog&per_page=15&page=1`
+          urlForPhotos: `https://api.pexels.com/v1/search?query=dog&per_page=16&page=1`
         }
   
         this.onBlur = this.onBlur.bind(this)
