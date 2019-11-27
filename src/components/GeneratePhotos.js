@@ -1,4 +1,3 @@
-
 export default function GeneratePhotos(photos) {
     let outcome = photos.map((photo) => 
         `<div class='photo__container'>
@@ -6,7 +5,7 @@ export default function GeneratePhotos(photos) {
             <div class="photo__details">
                 <div>
                     <h4 class="photo__author">Author</h4>
-                    <a class="photo__link" href=${photo.url}>
+                    <a class="photo__link" target="_blank" rel="noopener noreferrer" href=${photo.url}>
                         <h3 class="photo__photographer">${photo.photographer}</h3>
                     </a>
                 </div>
