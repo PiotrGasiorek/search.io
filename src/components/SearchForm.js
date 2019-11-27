@@ -14,8 +14,7 @@ class SearchForm extends Component {
         super(props)
         this.state = {
           active: false,
-          keywords: '',
-          urlForPhotos: `https://api.pexels.com/v1/search?query=dog&per_page=16&page=1`
+          urlForPhotos: ''
         }
   
         this.onBlur = this.onBlur.bind(this)
@@ -38,7 +37,7 @@ class SearchForm extends Component {
 
     onChange(e){
       this.setState({
-          keywords: e.target.value
+          urlForPhotos: `https://api.pexels.com/v1/search?query=${e.target.value}&per_page=16&page=1`
       });
     }
 
@@ -51,6 +50,7 @@ class SearchForm extends Component {
         }
       }).then(resp => resp.json())
       .then(resp => {
+        resp.total_results === 0 ? alert('No photos were found') :
         this.props.onSubmit(resp.photos);
       })
       .catch(error => alert(error));
