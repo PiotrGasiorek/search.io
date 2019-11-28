@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './components/Main';
+import Notifications from './components/Notifications';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component {
         <Header searchResoults={this.searchedPhotosHandler}/>
         <Main searchedPhotos={this.state.receivedPhotos}/>
         <Footer/>
+        <Notifications/>
       </div> 
     );
   }
