@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import toggleNotifications from '../js/toggleNotifications';
 
 /* Components */
 import Input from './Input';
@@ -50,7 +51,7 @@ class SearchForm extends Component {
         }
       }).then(resp => resp.json())
       .then(resp => {
-        resp.total_results === 0 ? alert('No photos were found') :
+        resp.total_results === 0 ? toggleNotifications() :
         this.props.onSubmit(resp.photos);
       })
       .catch(error => alert(error));
@@ -62,7 +63,7 @@ class SearchForm extends Component {
               <div>
                 <Label active={this.state.active}>Keywords</Label>
                 <Input onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.onChange} placeholder='Greece coast'/>
-                <Button type='submit' onClick={this.onSubmit}>Search</Button>
+                <Button id='searchBtn' type='submit' onClick={this.onSubmit}>Search</Button>
               </div>
           </SearchFormStyles>
       );
