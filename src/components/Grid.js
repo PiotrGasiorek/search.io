@@ -1,34 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
+import generatePhotos from '../js/generatePhotos';
 
 class Grid extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {receivedPhotos: []};
         this.displayPhotos = this.displayPhotos.bind(this)
     }
 
     componentDidUpdate(prevProps){
         if(this.props.searchedPhotos !== prevProps.searchedPhotos){
-            this.setState({
-              receivedPhotos: Array.from(this.props.searchedPhotos)
-            }, this.displayPhotos())
+            this.displayPhotos()
         }
     }
     
     displayPhotos(){
-        // setTimeout added to prevent operations on unchanged state
-        setTimeout(() => {
-            let columns = document.getElementsByClassName('column');
-            let receivedPhotos = this.state.receivedPhotos;
-            columns.forEach((column) => {
-                /* for(i = 0; i < 8; i++){
-                    column.innerHtml += `<img src={}/>`
-                } */
-            });
-        }, 0);
-       
+        let columns = [...document.getElementsByClassName('column')];
+        let photos = generatePhotos(this.props.searchedPhotos);
+        columns.forEach((column) => {
+            for(let i = 0; i < 4; i++){
+                let photo = photos.shift();
+                column.innerHTML += photo;
+            }
+        });
     }
+    
     render() {
 
         return (
