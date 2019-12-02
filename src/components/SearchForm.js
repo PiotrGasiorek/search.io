@@ -51,10 +51,10 @@ class SearchForm extends Component {
         }
       }).then(resp => resp.json())
       .then(resp => {
-        resp.total_results === 0 ? toggleNotifications() :
+        resp.total_results === 0 ? toggleNotifications('We couldn\'t find anything') :
         this.props.onSubmit(resp.photos);
       })
-      .catch(error => alert(error));
+      .catch(error => toggleNotifications(error));
     }
 
     render() {
