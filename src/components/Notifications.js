@@ -6,7 +6,7 @@ export default function Notifications(){
     return (
         <NotificationsStyles id='notification'>
             <img src={icon_alert} alt="Alert icon"/>
-            <p>We couldn't find anything</p>
+            <p></p>
         </NotificationsStyles>
     )
 } 
