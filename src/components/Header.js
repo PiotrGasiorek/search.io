@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../gallery/logo.svg';
-import background from '../gallery/background.jpg';
+import background from '../gallery/background.jpeg';
 import Title from './Title';
 import SearchForm from './SearchForm';
 
