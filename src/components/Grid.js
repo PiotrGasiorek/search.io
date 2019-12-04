@@ -5,17 +5,19 @@ import generatePhotos from '../js/generatePhotos';
 class Grid extends React.Component {
     constructor(props) {
         super(props);
-        this.displayPhotos = this.displayPhotos.bind(this)
+        this.displayResults = this.displayResults.bind(this)
+        this.cleanPreviousResults = this.cleanPreviousResults.bind(this)
     }
 
     componentDidUpdate(prevProps){
         if(this.props.searchedPhotos !== prevProps.searchedPhotos){
-            this.displayPhotos()
+            this.displayResults()
         }
     }
     
-    displayPhotos(){
+    displayResults(){
         let columns = [...document.getElementsByClassName('column')];
+        this.cleanPreviousResults(columns);
         let photos = generatePhotos(this.props.searchedPhotos);
         columns.forEach((column) => {
             for(let i = 0; i < 4; i++){
@@ -23,6 +25,10 @@ class Grid extends React.Component {
                 column.innerHTML += photo;
             }
         });
+    }
+
+    cleanPreviousResults(columns){
+        columns.forEach(column => column.innerHTML = '');
     }
     
     render() {
