@@ -1,0 +1,19 @@
+.loadingScreen{
+    background: #007FCC;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 1000;
+    animation-name: screenAnimation;
+    animation-delay: 0.4s;
+    animation-duration: 1s;
+    z-index: 5000;
+}
+
+@keyframes screenAnimation {
+    0% {height: 100vh;}
+    100% {
+        height: 0%;
+        display: none;
+    }
+}
