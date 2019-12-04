@@ -5,7 +5,7 @@ import Grid from './Grid';
 const Main = function(props) {
     return (
         <MainStyles>
-            <h2>Resoults</h2>
+            <h2>Results</h2>
             <Grid searchedPhotos={props.searchedPhotos}/>
         </MainStyles>
     );
